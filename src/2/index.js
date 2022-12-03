@@ -120,7 +120,7 @@ function calculateScore2(lines) {
 }
 
 function maina() {
-  const data = getData("data.txt");
+  const data = getData("../data/2/data.txt");
   const lines = data.split("\n");
   print(lines);
   const score = calculateScore(lines);
@@ -128,7 +128,7 @@ function maina() {
 }
 
 function mainb() {
-  const data = getData("data.txt");
+  const data = getData("../data/2/data.txt");
   const lines = data.split("\n");
   print(lines);
   const score = calculateScore2(lines);

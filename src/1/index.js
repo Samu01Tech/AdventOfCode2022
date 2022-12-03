@@ -42,7 +42,7 @@ function findMaxNth(elfs, n) {
 }
 
 function maina() {
-  const data = getData("data.txt");
+  const data = getData("../data/1/data.txt");
   const elfsRaw = parseData(data);
   const elfSum = parseAndAccumulate(elfsRaw);
   const max = Math.max(...elfSum);
@@ -50,7 +50,7 @@ function maina() {
 }
 
 function mainb() {
-  const data = getData("data.txt");
+  const data = getData("../data/1/data.txt");
   const elfsRaw = parseData(data);
   const elfSum = parseAndAccumulate(elfsRaw);
   const max3 = findMaxNth(elfSum, 3);
