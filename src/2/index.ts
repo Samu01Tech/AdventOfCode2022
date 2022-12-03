@@ -1,15 +1,10 @@
-import * as fs from "fs";
+import { getData } from "../helper.js";
 
-function print(...args) {
+function print(...args: any[]) {
   // if argument -d or --debug is passed in node
   if (process.argv.includes("-d") || process.argv.includes("--debug")) {
     console.log(...args);
   }
-}
-
-function getData(file) {
-  const data = fs.readFileSync(file, "utf8");
-  return data;
 }
 
 const opponentSignT = {
@@ -30,14 +25,14 @@ const outcomeT = {
   WIN: "Z",
 };
 
-function getSignScore(sign) {
+function getSignScore(sign: string) {
   if (sign === mySignT.ROCK) return 1;
   else if (sign === mySignT.PAPER) return 2;
   else if (sign === mySignT.SCISSORS) return 3;
   else return 0;
 }
 
-function getOutcome(opponentSign, mySign) {
+function getOutcome(opponentSign: string, mySign: string) {
   if (
     (mySign === mySignT.ROCK && opponentSign === opponentSignT.ROCK) ||
     (mySign === mySignT.PAPER && opponentSign === opponentSignT.PAPER) ||
@@ -59,7 +54,7 @@ function getOutcome(opponentSign, mySign) {
   }
 }
 
-function calculateScore(lines) {
+function calculateScore(lines: string[]) {
   let score = 0;
   lines.forEach((line) => {
     const [opponentSign, mySign] = line.split(" ");
@@ -74,7 +69,7 @@ function calculateScore(lines) {
   return score;
 }
 
-function transformSign(need, opponentSign) {
+function transformSign(need: string, opponentSign: string) {
   if (need === outcomeT.LOSE) {
     if (opponentSign === opponentSignT.ROCK) {
       return mySignT.SCISSORS;
@@ -102,8 +97,8 @@ function transformSign(need, opponentSign) {
   }
 }
 
-function calculateScore2(lines) {
-  let score = 0;
+function calculateScore2(lines: string[]) {
+  let score: number = 0;
   lines.forEach((line) => {
     let [opponentSign, mySign] = line.split(" ");
     const needOutcome = mySign;

@@ -1,24 +1,19 @@
-import * as fs from "fs";
+import { getData } from "../helper.js";
 
-function print(...args) {
+function print(...args: any[]) {
   // if argument -d or --debug is passed in node
   if (process.argv.includes("-d") || process.argv.includes("--debug")) {
     console.log(...args);
   }
 }
 
-function getData(file) {
-  const data = fs.readFileSync(file, "utf8");
-  return data;
-}
-
-function parseData(data) {
+function parseData(data: string) {
   const elfs = data.split("\n\n");
   print(elfs);
   return elfs;
 }
 
-function parseAndAccumulate(elfs) {
+function parseAndAccumulate(elfs: string[]) {
   let elfsCalories = [];
   elfs.forEach((elf) => {
     const food = elf.split("\n");
@@ -29,7 +24,7 @@ function parseAndAccumulate(elfs) {
   return elfsCalories;
 }
 
-function findMaxNth(elfs, n) {
+function findMaxNth(elfs, n: number) {
   let sumNth = 0;
   for (let i = 0; i < n; i++) {
     const max = Math.max(...elfs);
