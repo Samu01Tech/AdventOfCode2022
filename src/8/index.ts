@@ -129,14 +129,14 @@ function findVisibility(tree, col, row, matrix) {
     visibility.push(treecount);
   };
 
-  console.log("---");
-  console.log("Tree: ", row, "-", col);
+  // console.log("---");
+  // console.log("Tree: ", row, "-", col);
   up();
   down();
   left();
   right();
-  console.log(visibility);
-  console.log("---");
+  // console.log(visibility);
+  // console.log("---");
 
   // multiply all visibility
   let totalVisibility = 1;
